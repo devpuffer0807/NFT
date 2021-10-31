@@ -1,0 +1,64 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  height: 100vh;
+  background: #ffffff;
+}
+
+svg {
+  display: block;
+}
+.Cat {
+  width: 230px;
+  height: 300px;
+}
+
+svg.shadow {
+  fill: #1b1b1a;
+  filter: blur(4px);
+  position: relative;
+  top: -30px;
+  left: 15px;
+  z-index: -100;
+}
+
+@keyframes tail-move {
+  0%  {transform: skewY(0deg) translateX(0px) translateY(0px)}
+  50% {transform: translateY(-15px) translateX(-15px) skewY(10deg)}
+  100%  {transform: skewY(0deg) translateX(0px) translateY(0px)}
+}
+
+@keyframes cat-jump {
+  0%  {transform: translateY(0px)}
+  50% {transform: translateY(-25px)}
+  100%  {transform: translateY(0px)}
+}
+
+@keyframes shadow-jump {
+  0%  {transform: scale(1, 1)}
+  50% {transform: scale(0.7, 0.7)}
+  100%  {transform: scale(1, 1)}
+}
+
+@keyframes leg-left-scratch {
+  0%  {transform-origin: 35% 62%; transform: rotateX(0deg);}
+  40% {transform-origin: 35% 62%; transform: rotate(-150deg) scaleY(0.7)}
+  60% {transform-origin: 35% 62%; transform: rotate(-150deg) scaleY(0.7)}
+  100%  {transform-origin: 35% 62%; transform: rotateX(0deg);}
+}
+
+@keyframes leg-right-scratch {
+  0%  {transform-origin: 64% 62%; transform: rotateX(0deg);}
+  40% {transform-origin: 64% 62%; transform: rotate(150deg) scaleY(0.7)}
+  60% {transform-origin: 64% 62%; transform: rotate(150deg) scaleY(0.7)}
+  100%  {transform-origin: 64% 62%; transform: rotateX(0deg);}
+}
+
+@keyframes mouth-scratch {
+  0%  {transform: translateY(0px);}
+  40% {transform: translateY(5px);}
+  50% {transform: translateY(0px);}
+  60% {transform: translateY(5px);}
+  100%  {transform: translateY(0px);}
+}

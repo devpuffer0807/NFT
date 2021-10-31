@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cat</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        height: 100vh;
+        background: #ffffff;
+      }
+
+      svg {
+        display: block;
+      }
+      .Cat {
+        width: 230px;
+        height: 300px;
+      }
+
+      svg.shadow {
+        fill: #1b1b1a;
+        filter: blur(4px);
+        position: relative;
+        top: -30px;
+        left: 15px;
+        z-index: -100;
+      }
+
+      @keyframes tail-move {
+        0%  {transform: skewY(0deg) translateX(0px) translateY(0px)}
+        50% {transform: translateY(-15px) translateX(-15px) skewY(10deg)}
+        100%  {transform: skewY(0deg) translateX(0px) translateY(0px)}
+      }
+
+      @keyframes cat-jump {
+        0%  {transform: translateY(0px)}
+        50% {transform: translateY(-25px)}
+        100%  {transform: translateY(0px)}
+      }
+
+      @keyframes shadow-jump {
+        0%  {transform: scale(1, 1)}
+        50% {transform: scale(0.7, 0.7)}
+        100%  {transform: scale(1, 1)}
+      }
+
+      @keyframes leg-left-scratch {
+        0%  {transform-origin: 35% 62%; transform: rotateX(0deg);}
+        40% {transform-origin: 35% 62%; transform: rotate(-150deg) scaleY(0.7)}
+        60% {transform-origin: 35% 62%; transform: rotate(-150deg) scaleY(0.7)}
+        100%  {transform-origin: 35% 62%; transform: rotateX(0deg);}
+      }
+
+      @keyframes leg-right-scratch {
+        0%  {transform-origin: 64% 62%; transform: rotateX(0deg);}
+        40% {transform-origin: 64% 62%; transform: rotate(150deg) scaleY(0.7)}
+        60% {transform-origin: 64% 62%; transform: rotate(150deg) scaleY(0.7)}
+        100%  {transform-origin: 64% 62%; transform: rotateX(0deg);}
+      }
+
+      @keyframes mouth-scratch {
+        0%  {transform: translateY(0px);}
+        40% {transform: translateY(5px);}
+        50% {transform: translateY(0px);}
+        60% {transform: translateY(5px);}
+        100%  {transform: translateY(0px);}
+      }
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="Cat">
+      <svg viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" class="cat-svg">
+  <g class="tail">
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(35, 31, 32);" d="M 557.92 703.463 C 603.796 679.576 803.866 596.02 830.534 632.097 C 786.116 714.935 594.663 747.311 555.377 748.081 L 557.92 703.463 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(255, 255, 255);" d="M 712.699 660.596 L 752.265 639.344 L 752.681 653.466 L 783 631.038 L 783 650.143 C 779.601 647.084 818.752 621.439 830.44 631.958 C 816.415 649.1 766.843 672.936 770.921 667.951 L 778.16 645.229 L 742.369 670.163 L 743.374 652.468 L 722.261 677.602 L 705.772 696.102 L 709.593 675.391 L 712.699 660.596 Z"/>
+  </g>
+  <g class="body">
+    <ellipse style="fill: rgb(35, 31, 32); stroke: rgb(255, 255, 255); stroke-width: 5px;" cx="308.234" cy="829.85" rx="80.794" ry="45.728"/>
+    <ellipse style="fill: rgb(35, 31, 32); stroke: rgb(255, 255, 255); stroke-width: 5px;" cx="585.382" cy="831.85" rx="80.794" ry="45.728"/>
+    <path style="stroke: rgb(255, 255, 255); stroke-width: 4px; fill: rgb(35, 31, 32);" d="M 260.032 362.189 C 349.932 474.765 522.47 490.949 630.619 357.326 C 680.747 451.179 711.291 536.246 722.126 599.82 C 747.094 746.325 618.781 867.346 456.363 870.076 C 314.595 871.167 160.419 758.708 172.409 591.276 C 177.73 516.974 203.496 450.298 260.032 362.189 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(253, 253, 253);" d="M 409.239 514.398 C 411.208 498.14 396.679 477.849 407.319 466.387 C 414.187 452.912 498.871 450.352 503.046 469.095 C 508.229 478.186 498.133 498.902 500.997 513.135 C 490.238 521.37 483.35 538.651 485.157 548.708 C 495.49 571.31 539.423 561.914 573.275 622.318 C 605.195 679.274 496.964 851.557 453.408 851.811 C 402.471 852.108 294.384 675.397 330.186 619.638 C 361.131 571.444 413.106 567.813 422.119 542.745 C 421.922 532.193 415.782 519.504 409.239 514.398 Z"/>
+  </g>
+  <g class="head">
+    <path style="stroke: rgb(0, 0, 0); paint-order: fill; fill: rgb(35, 31, 32);" d="M 324.396 82.003 C 406.633 15.499 512.97 46.915 549.815 77.913 C 588.76 55.985 611.393 49.959 673.211 48.381 C 674.673 56.054 679.386 127.797 639.836 187.226 C 696.539 300.726 620.704 434.578 491.45 464.168 C 370.794 491.789 190.136 413.492 241.907 191.913 C 227.84 178.547 193.474 98.478 200.944 53.713 C 218.312 50.333 298.139 50.405 324.396 82.003 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(253, 253, 253);" d="M 291.495 239.835 C 251.302 168.391 353.809 87.449 378.544 87.498 C 390.941 86.607 423.145 128.495 442.039 167.816 L 444.945 185.413 L 447.232 167.747 C 456.358 144.695 496.839 82.6 512.678 88.522 C 564.438 107.874 626.745 175.146 599.569 239.011 C 618.472 230.375 644.798 230.438 649.895 247.996 C 658.77 280.02 635.004 366.68 598.884 400.538 C 489.268 503.29 303.625 477.225 251.18 334.9 C 240.607 306.207 234.714 248.868 247.97 233.714 C 254.234 224.593 275.849 224.484 291.495 239.835 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(251, 251, 251);" d="M 320.638 83.706 C 286.458 54.91 229.353 56.821 215.735 62.452 C 211.844 78.329 233.433 170.777 246.597 183.095 C 249.525 160.303 295.058 96.355 320.638 83.706 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(253, 253, 253);" d="M 560.223 83.617 C 580.166 63.762 646.506 61.523 660.54 65.945 C 666.724 82.901 650.566 155.704 637.173 178.104 C 625.704 145.885 578.652 91.336 560.223 83.617 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(253, 253, 253);" d="M 415.44 102.396 C 425.697 85.688 449.078 76.453 465.741 78.093 C 461.7 61.271 475.448 59.698 488.037 60.639 C 476.274 44.841 458.56 51.178 447.19 65.125 C 444.999 58.553 449.841 49.434 456.507 46.835 C 440.41 42.707 438.649 69.99 438.649 69.99 C 436.899 64.764 437.165 53.745 439.673 50.689 C 432.576 50.99 428.878 65.539 429.935 77.376 C 426.356 73.665 425.618 64.92 427.9 59.728 C 421.617 61.815 420.617 72.966 421.464 82.206 C 418.28 81.141 415.596 76.516 415.52 68.464 C 412.315 72.082 409.831 93.728 415.44 102.396 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgba(4, 4, 4, 0); stroke-width: 3px;" d="M 508.402 282.098 C 577.531 276.307 570.769 161.152 511.325 152.025 C 444.075 141.946 450.013 286.99 508.402 282.098 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill-rule: nonzero; stroke-width: 3px; fill: rgba(4, 4, 4, 0);" d="M 389.372 282.857 C 442.099 281.649 433.965 142.086 377.317 147.673 C 312.93 154.023 320.627 281.641 389.372 282.857 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(35, 31, 32);" d="M 403.075 301.586 C 415.252 272.295 474.061 267.584 486.486 300.316 C 484.187 304.858 468.991 324.692 461.929 326.567 C 455.938 328.158 435.828 329.045 430.173 327.837 C 422.024 326.096 404.193 304.672 403.075 301.586 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(35, 31, 32);" d="M 322.595 328.575 L 380.971 299.387 C 313.311 390.293 575.389 385.621 506.823 302.419 L 576.192 326.301 L 515.768 310.149 C 566.3 393.315 315.002 381.259 369.726 309.971 L 322.595 328.575 Z"/>
+  </g>
+  <g class="eye">
+    <circle style="paint-order: fill; fill: rgb(2, 2, 2);" cx="512.624" cy="194.73" r="17.358" transform="matrix(1.263846, 0.034759, -0.037365, 1.358592, -130.574905, -62.769783)" bx:origin="0.749 0.592"/>
+    <circle style="paint-order: fill; fill: rgb(2, 2, 2);" cx="512.624" cy="194.73" r="17.358" transform="matrix(1.263846, 0.034759, -0.037365, 1.358592, -261.641754, -62.769791)" bx:origin="0.749 0.592"/>
+  </g>
+  <g class="left-leg">
+    <path style="fill: rgb(35, 31, 32); stroke: rgb(255, 255, 255); stroke-width: 3px;" d="M 246.624 545.67 L 247.815 814.93 L 370.531 814.93 L 370.531 546.861"/>
+    <ellipse style="fill: rgb(35, 31, 32); stroke: rgb(255, 255, 255); stroke-width: 5px;" cx="309.119" cy="828.85" rx="80.794" ry="45.728"/>
+  </g>
+  <g class="right-leg">
+    <path style="fill: rgb(35, 31, 32); stroke: rgb(255, 255, 255); stroke-width: 3px;" d="M 525.415 550.435 L 526.607 826.844 L 649.323 822.079 L 649.323 552.818"/>
+    <ellipse style="fill: rgb(35, 31, 32); stroke: rgb(255, 255, 255); stroke-width: 5px;" cx="585.523" cy="831.86" rx="80.794" ry="45.728"/>
+  </g>
+      </svg>
+      <svg  class="shadow" height="40" width="230">
+        <path d="M 30 20 C 30 4 171 4 171 21 C 171 39 30 39 30 20"></path>
+      </svg>
+    </div>
+    <script>
+    
+      const eye = document.querySelector('.eye');
+      const head = document.querySelector('.head');
+      const left_leg = document.querySelector('.left-leg');
+      const right_leg = document.querySelector('.right-leg');
+      const tail = document.querySelector('.tail');
+
+      window.addEventListener('mousemove', function (evt) {
+          const x = -(window.innerWidth / 2 - evt.pageX) / 20;
+          const y = -(window.innerHeight / 2 - evt.pageY) / 10;
+          eye.style.transform = `translateY(${y}px) translateX(${x}px)`;
+      });  
+
+      var iter = true;
+
+      document.querySelector('.tail').addEventListener("click", function (evt) {
+          tail.style.animation = "tail-move 0.6s 1";
+          setTimeout(function(){
+              tail.style.animation = "";
+            }, 700);     
+      });
+
+      var three_click = 0;
+
+      const cat_svg = document.querySelector('.cat-svg')
+      const shadow = document.querySelector('.shadow')
+      document.querySelector('.Cat').addEventListener("click", function (evt) {
+          three_click ++;
+          if (three_click == 3) {
+              three_click = 0;
+              cat_svg.style.animation = "cat-jump 0.6s 1";
+              shadow.style.animation = "shadow-jump 0.6s 1"
+              setTimeout(function(){
+                  cat_svg.style.animation = "";
+                  shadow.style.animation = ""
+                }, 700);    
+          }
+          else {
+              setTimeout(function(){
+                  three_click = 0;
+                }, 600);
+          }   
+      });
+
+
+      document.querySelector('.left-leg').addEventListener("click", function (evt) {
+          left_leg.style.animation = "leg-left-scratch 2s 1";
+          // mouth.style.animation = "mouth-scratch 2s 1";
+          setTimeout(function(){
+              left_leg.style.animation = "";
+              // mouth.style.animation = "";
+            }, 2100);     
+      });
+
+      document.querySelector('.right-leg').addEventListener("click", function (evt) {
+          right_leg.style.animation = "leg-right-scratch 2s 1";
+          // mouth.style.animation = "mouth-scratch 2s 1";
+          setTimeout(function(){
+              right_leg.style.animation = "";
+              // mouth.style.animation = "";
+            }, 2100);        
+      });
+
+      window.addEventListener('mousemove', function (evt) {
+          const x = -(window.innerWidth / 2 - evt.pageX) / 50;
+          const y = -(window.innerHeight / 2 - evt.pageY) / 50;
+          head.style.transform = `translateY(${y}px) translateX(${x}px)`;
+      });  
+
+    </script>
+    </body>
+</html>

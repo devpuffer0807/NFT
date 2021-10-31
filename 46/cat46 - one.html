@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cat</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        height: 100vh;
+        background: #ffffff;
+      }
+
+      svg {
+        display: block;
+      }
+      .Cat {
+        width: 230px;
+        height: 300px;
+      }
+
+      svg.shadow {
+        fill: #1b1b1a;
+        filter: blur(4px);
+        position: relative;
+        top: -30px;
+        left: 15px;
+        z-index: -100;
+      }
+
+      @keyframes tail-move {
+        0%  {transform: skewY(0deg) translateX(0px) translateY(0px)}
+        50% {transform: translateY(-15px) translateX(-15px) skewY(10deg)}
+        100%  {transform: skewY(0deg) translateX(0px) translateY(0px)}
+      }
+
+      @keyframes cat-jump {
+        0%  {transform: translateY(0px)}
+        50% {transform: translateY(-25px)}
+        100%  {transform: translateY(0px)}
+      }
+
+      @keyframes shadow-jump {
+        0%  {transform: scale(1, 1)}
+        50% {transform: scale(0.7, 0.7)}
+        100%  {transform: scale(1, 1)}
+      }
+
+      @keyframes leg-left-scratch {
+        0%  {transform-origin: 35% 62%; transform: rotateX(0deg);}
+        40% {transform-origin: 35% 62%; transform: rotate(-150deg) scaleY(0.7)}
+        60% {transform-origin: 35% 62%; transform: rotate(-150deg) scaleY(0.7)}
+        100%  {transform-origin: 35% 62%; transform: rotateX(0deg);}
+      }
+
+      @keyframes leg-right-scratch {
+        0%  {transform-origin: 64% 62%; transform: rotateX(0deg);}
+        40% {transform-origin: 64% 62%; transform: rotate(150deg) scaleY(0.7)}
+        60% {transform-origin: 64% 62%; transform: rotate(150deg) scaleY(0.7)}
+        100%  {transform-origin: 64% 62%; transform: rotateX(0deg);}
+      }
+
+      @keyframes mouth-scratch {
+        0%  {transform: translateY(0px);}
+        40% {transform: translateY(5px);}
+        50% {transform: translateY(0px);}
+        60% {transform: translateY(5px);}
+        100%  {transform: translateY(0px);}
+      }
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="Cat">
+      <svg viewBox="0 0 900 900" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com" class="cat-svg">
+ <g class="tail">
+    <path style="stroke-width: 4px; fill: rgb(40, 13, 129); stroke: rgb(255, 255, 255);" d="M 557.92 703.463 C 603.796 679.576 813.702 593.43 818.019 637.572 C 822.729 685.726 605.554 765.656 564.764 729.308 L 557.92 703.463 Z"/>
+  </g>
+  <g class="body">
+    <ellipse style="stroke-width: 5px; fill: rgb(248, 197, 71); stroke: rgb(255, 255, 255);" cx="312.234" cy="823.85" rx="80.794" ry="45.728"/>
+    <ellipse style="stroke-width: 5px; fill: rgb(248, 197, 71); stroke: rgb(255, 255, 255);" cx="585.382" cy="825.85" rx="80.794" ry="45.728"/>
+    <path style="stroke-width: 2px; fill: rgb(40, 13, 130); stroke: rgb(255, 255, 255);" d="M 267.653 363.392 C 357.553 475.968 516.222 492.288 624.371 358.665 C 674.499 452.518 705.132 530.703 715.967 594.277 C 740.935 740.782 613.47 859.379 451.052 862.109 C 309.284 863.2 164.8 759.195 176.79 591.763 C 182.111 517.461 211.117 451.501 267.653 363.392 Z"/>
+    <path style="fill: rgba(137, 97, 44, 0); stroke: rgb(253, 253, 253); stroke-width: 5px;" d="M 648.903 413.268 C 679.773 484.661 679.858 526.163 644.085 547.426 C 646.635 584.158 596.144 613.388 564.919 588.055 C 561.118 676.501 451.188 667.628 454.742 598.561 C 450.068 688.145 323.937 655.569 327.496 587.355 C 296.591 610.673 250.61 575.337 251.156 547.434 C 219.387 521.248 217.286 456.882 235.048 424.17"/>
+    <path style="stroke: rgb(0, 0, 0); stroke-width: 3px; fill: rgba(137, 97, 44, 0);"/>
+    <path style="stroke-width: 3px; fill: rgba(137, 97, 44, 0); stroke: rgb(235, 173, 49);" d="M 451.608 692.756 L 454.165 603.486"/>
+    <path style="stroke-width: 3px; fill: rgba(137, 97, 44, 0); stroke: rgb(235, 173, 49);" d="M 450.724 706.224 L 449.103 757.67"/>
+    <path style="stroke-width: 3px; fill: rgba(137, 97, 44, 0); stroke: rgb(235, 173, 49);" d="M 449.508 764.961 L 448.698 804.255"/>
+    <path style="stroke-width: 3px; fill: rgba(137, 97, 44, 0); stroke: rgb(235, 173, 49);" d="M 519.274 687.652 C 516.276 704.856 480.513 730.466 451.552 695.784 C 407.514 733.047 377.052 697.572 376.558 679.865"/>
+    <path style="stroke-width: 3px; fill: rgba(137, 97, 44, 0); stroke: rgb(235, 173, 49);" d="M 519.274 753.352 C 496.823 785.103 462.509 770.883 448.885 760.767 C 414.687 784.195 379.822 770.186 376.558 751.292"/>
+    <path style="stroke: rgb(0, 0, 0); stroke-width: 3px; fill: rgba(137, 97, 44, 0);"/>
+    <path style="stroke: rgb(0, 0, 0); stroke-width: 3px; fill: rgba(137, 97, 44, 0);"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="609.542" cy="407.493" r="13.562"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="630.838" cy="457.894" r="8.094"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="562.691" cy="460.023" r="12.213"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="611.672" cy="506.875" r="19.724"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="552.043" cy="560.824" r="15.059"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="675.56" cy="530.3" r="6.991"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="652.844" cy="479.19" r="14.617"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="252.48" cy="461.443" r="15.357"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="262.418" cy="417.431" r="9.887"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="199.909" cy="600.006" r="11.554"/>
+    <circle style="stroke-width: 4px; stroke: rgb(235, 173, 49); fill: rgb(186, 214, 71);" cx="213.185" cy="504.01" r="9.688"/>
+  </g>
+  <g class="head" style="">
+    <path style="paint-order: fill; stroke-width: 2px; fill: rgb(40, 13, 130); stroke: rgb(255, 255, 255);" d="M 326.444 94.488 C 408.681 27.984 508.137 59.934 544.982 90.932 C 583.927 69.004 601.082 67.614 662.9 66.036 C 665.963 99.319 666.55 129.147 632.602 200.581 C 676.342 313.433 621.704 436.578 492.45 466.168 C 371.794 493.789 198.159 403.499 242.259 204.932 C 228.192 191.566 197.411 112.284 204.881 67.519 C 222.249 64.139 300.187 62.89 326.444 94.488 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(177, 127, 48); stroke-width: 0px;" d="M 317.9 95.92 C 283.72 67.124 226.615 71.171 212.997 76.802 C 209.106 92.679 231.763 187.263 244.927 199.581 C 247.855 176.789 292.32 108.569 317.9 95.92 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(177, 127, 48); stroke-width: 0px;" d="M 554.42 94.621 C 574.363 74.766 641.104 68.362 655.138 72.784 C 661.322 89.74 645.564 164.707 632.171 187.107 C 620.702 154.888 572.849 102.34 554.42 94.621 Z"/>
+    <path style="stroke-width: 2px; fill: rgb(248, 197, 71); stroke: rgb(235, 173, 49);" d="M 378.023 305.718 C 377.938 305.854 373.72 277.766 379.385 274.005 C 422.665 245.267 467.949 247.308 505.748 271.502 C 508.7 275.736 508.689 304.723 505.444 310.872 C 497.781 319.711 484.286 321.977 470.704 315.182 L 445.745 291.411 C 445.85 291.411 443.104 279.607 445.707 274.049 C 446.568 270.238 436.892 270.461 440.838 275.351 C 441.888 276.651 443.715 286.514 442.489 290.946 C 440.76 299.42 425.674 306.679 426.144 306.757 C 426.144 306.757 411.744 315.577 406.821 317.648 C 401.898 319.719 387.463 314.885 378.023 305.718 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill: rgb(255, 255, 255); stroke-width: 0px;" d="M 470.504 212.729 C 480.136 213.322 551.58 191.773 581.238 171.747 C 593.99 250.89 473.379 284.114 470.504 212.729 Z"/>
+    <path style="stroke: rgb(0, 0, 0); fill-rule: nonzero; fill: rgb(255, 255, 255); stroke-width: 0px;" d="M 412.885 212.35 C 382.943 218.45 314.478 180.788 300 178.241 C 294.552 255.179 412.789 283.213 412.885 212.35 Z"/>
+    <path style="stroke-width: 2px; stroke: rgb(229, 150, 192); fill: rgb(229, 150, 192);" d="M 390.826 248.07 C 422.995 208.68 466.607 208.68 499.3 247.325 C 475.468 296.333 421.482 295.763 390.826 248.07 Z"/>
+    <path style="stroke: rgb(0, 0, 0); stroke-width: 2px; fill: rgb(255, 255, 255);" d="M 309.377 268.991 C 373.826 361.668 497.767 374.726 581.23 270.082 C 582.817 354.243 361.812 457.062 309.377 268.991 Z"/>
+    <path style="stroke-width: 4px; fill: rgb(40, 13, 129); stroke: rgb(255, 255, 255);" d="M 312.177 120.751 L 417.691 151.571 C 450.628 155.289 444.415 210.181 413.676 206.244 L 300 174.691 C 267.662 167.599 279.494 114.725 312.177 120.751 Z"/>
+    <path style="stroke-width: 4px; fill: rgb(40, 13, 129); stroke: rgb(255, 255, 255);" d="M 468.213 148.325 L 557.92 114.57 C 587.25 111.778 602.41 142.344 582.182 161.877 L 485.479 200.015 C 451.942 218.234 434.792 161.834 468.213 148.325 Z"/>
+    <circle style="fill: rgb(186, 214, 71); stroke-width: 4px; stroke: rgb(235, 173, 49);" cx="259.029" cy="233.132" r="13.471"/>
+    <circle style="fill: rgb(186, 214, 71); stroke-width: 4px; stroke: rgb(235, 173, 49);" cx="416.484" cy="108.95" r="13.085"/>
+    <circle style="fill: rgb(186, 214, 71); stroke-width: 4px; stroke: rgb(235, 173, 49);" cx="350.152" cy="114.184" r="7.609"/>
+    <circle style="fill: rgb(186, 214, 71); stroke-width: 4px; stroke: rgb(235, 173, 49);" cx="484.814" cy="98.255" r="14.31"/>
+    <circle style="fill: rgb(186, 214, 71); stroke-width: 4px; stroke: rgb(235, 173, 49);" cx="605.431" cy="278.289" r="15.551"/>
+    <circle style="fill: rgb(186, 214, 71); stroke-width: 4px; stroke: rgb(235, 173, 49);" cx="264.377" cy="294.332" r="9.581"/>
+    <circle style="fill: rgb(186, 214, 71); stroke-width: 4px; stroke: rgb(235, 173, 49);" cx="597.706" cy="340.677" r="11.429"/>
+  </g>
+  <g class="eye" transform="matrix(1, 0, 0, 1, -4.39032, -5.239838)">
+    <path style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(141, 99, 51);" d="M 511.716 223.613 C 521.396 220.386 553.935 204.532 551.767 205.255 C 556.342 233.905 522.494 262.106 511.716 223.613 Z"/>
+    <path style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: rgb(141, 99, 51);" d="M 344.32 216.528 C 354 213.301 383.763 228.041 381.595 228.764 C 380.979 256.47 343.511 252.914 344.32 216.528 Z"/>
+  </g>
+  <g class="mouth">
+    <path style="fill: rgb(248, 197, 71); stroke: rgb(235, 173, 49); stroke-width: 3px;" d="M 334.025 346.372 C 400.187 411.285 491.099 411.12 551.648 346.712 C 487.528 287.012 403.742 286.37 334.025 346.372 Z" class="mouth"/>
+  </g>
+  <g class="left-leg">
+    <path style="stroke: rgb(255, 255, 255); stroke-width: 5px; fill: rgb(40, 13, 130);" d="M 256.749 546.451 C 231.325 552.677 224.145 626.541 252.432 651.124 C 223.993 695.669 237.81 787.831 261.065 814.607 L 360.342 810.83 C 389.136 796.454 405.382 694.786 374.37 656.52 C 401.129 635.502 410.655 573.59 375.989 546.451"/>
+    <ellipse style="fill: rgb(248, 197, 71); stroke: rgb(253, 253, 253);" cx="312.119" cy="824.85" rx="80.794" ry="45.728"/>
+  </g>
+  <g class="right-leg">
+    <path style="stroke: rgb(255, 255, 255); stroke-width: 5px; fill: rgb(40, 13, 130);" d="M 520.954 546.243 C 512.828 550.244 492.673 616.225 522.328 660.234 C 488.692 694.464 506.184 787.218 535.375 816.113 L 637.005 816.8 C 668.472 746.291 664.375 713.224 645.245 664.354 C 674.35 606.861 654.41 558.9 642.499 543.497"/>
+    <ellipse style="fill: rgb(248, 197, 71); stroke: rgb(253, 253, 253);" cx="583.523" cy="825.86" rx="80.794" ry="45.728"/>
+  </g>
+      </svg>
+      <svg  class="shadow" height="40" width="230">
+        <path d="M 30 20 C 30 4 171 4 171 21 C 171 39 30 39 30 20"></path>
+      </svg>
+    </div>
+    <script>
+    
+const eye = document.querySelector('.eye');
+const head = document.querySelector('.head');
+const left_leg = document.querySelector('.left-leg');
+const right_leg = document.querySelector('.right-leg');
+const tail = document.querySelector('.tail');
+const mouth = document.querySelector('.mouth');
+
+window.addEventListener('mousemove', function (evt) {
+    const x = -(window.innerWidth / 2 - evt.pageX) / 15;
+    const y = -(window.innerHeight / 2 - evt.pageY) / 13 - 5;
+    eye.style.transform = `translateY(${y}px) translateX(${x}px)`;
+});  
+
+var iter = true;
+
+document.querySelector('.tail').addEventListener("click", function (evt) {
+    tail.style.animation = "tail-move 0.6s 1";
+    setTimeout(function(){
+        tail.style.animation = "";
+      }, 700);     
+});
+
+var three_click = 0;
+
+const cat_svg = document.querySelector('.cat-svg')
+const shadow = document.querySelector('.shadow')
+document.querySelector('.Cat').addEventListener("click", function (evt) {
+    three_click ++;
+    if (three_click == 3) {
+        three_click = 0;
+        cat_svg.style.animation = "cat-jump 0.6s 1";
+        shadow.style.animation = "shadow-jump 0.6s 1"
+        setTimeout(function(){
+            cat_svg.style.animation = "";
+            shadow.style.animation = ""
+          }, 700);    
+    }
+    else {
+        setTimeout(function(){
+            three_click = 0;
+          }, 600);
+    }   
+});
+
+
+document.querySelector('.left-leg').addEventListener("click", function (evt) {
+    left_leg.style.animation = "leg-left-scratch 2s 1";
+    mouth.style.animation = "mouth-scratch 2s 1";
+    setTimeout(function(){
+        left_leg.style.animation = "";
+        mouth.style.animation = "";
+      }, 2100);     
+});
+
+document.querySelector('.right-leg').addEventListener("click", function (evt) {
+    right_leg.style.animation = "leg-right-scratch 2s 1";
+    mouth.style.animation = "mouth-scratch 2s 1";
+    setTimeout(function(){
+        right_leg.style.animation = "";
+        mouth.style.animation = "";
+      }, 2100);        
+});
+
+window.addEventListener('mousemove', function (evt) {
+    const x = -(window.innerWidth / 2 - evt.pageX) / 26;
+    const y = -(window.innerHeight / 2 - evt.pageY) / 20;
+    head.style.transform = `translateY(${y}px) translateX(${x}px)`;
+    mouth.style.transform = `translateY(${y}px) translateX(${x}px)`;
+});  
+
+
+    </script>
+    </body>
+</html>

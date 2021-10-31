@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cat</title>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        height: 100vh;
+        background: #ffffff;
+      }
+      svg {
+        display: block;
+      }
+      .Cat {
+        width: 230px;
+        height: 300px;
+      }
+      path.mouth {
+        fill: #8a8765;
+        filter: drop-shadow( 0px 2px 1px #ffffff);
+      }
+      path.eye-out-left, path.eye-out-right {
+        fill: #ffffff;
+      }
+      path.eye-in-left, path.eye-in-right {
+        fill: #000000;
+      }
+      path.ear-in-left, path.ear-in-right {
+        fill: #098b4e;
+      }
+      path.ear-out-left, path.ear-out-right {
+        fill: #311c05;
+      }
+      path.mustache {
+        fill: #8a8765;
+        filter: drop-shadow( 0px 2px 1px #ffffff);
+      }
+      path.nose {
+        fill: #fa72d8;
+      }
+      path.body {
+        fill: #311c05;
+      }
+      path.stomach {
+        fill: #8a8765;
+        filter: drop-shadow( 0px -2px 1px #ffffff);
+      }
+      path.leg-right {
+        fill: #311c05;
+        filter: drop-shadow( 1px 3px 1px #ffffff);
+      }
+      path.leg-left {
+        fill: #311c05;
+        filter: drop-shadow( -1px 3px 1px #ffffff);
+      }
+      path.foot-left, path.foot-right, path.foot-left-back, path.foot-right-back {
+        fill: #8a8765;
+        filter: drop-shadow( 0px -2px 1px #ffffff);
+      }
+      path.pattern-left {
+        fill: #098b4e;
+      }
+      path.pattern-right {
+        fill: #8a8765;
+      }
+      path.head {
+        fill: #311c05;
+        filter: drop-shadow( 0px 2px 1px #ffffff);
+      }
+      path.tail {
+        fill: #311c05;
+      }
+      svg.shadow {
+        fill: #1b1b1a;
+        filter: blur(4px);
+        position: relative;
+        top: -40px;
+        z-index: -100;
+      }
+
+      @-webkit-keyframes tail-move {
+        0%  {-webkit-transform: skewY(0deg) translateX(0px) translateY(0px)}
+        50% {-webkit-transform: translateY(-15px) translateX(-15px) skewY(10deg)}
+        100%  {-webkit-transform: skewY(0deg) translateX(0px) translateY(0px)}
+      }
+
+      @keyframes tail-move {
+        0%  {transform: skewY(0deg) translateX(0px) translateY(0px)}
+        50% {transform: translateY(-15px) translateX(-15px) skewY(10deg)}
+        100%  {transform: skewY(0deg) translateX(0px) translateY(0px)}
+      }
+
+      @keyframes cat-jump {
+        0%  {transform: translateY(0px)}
+        50% {transform: translateY(-25px)}
+        100%  {transform: translateY(0px)}
+      }
+
+      @keyframes shadow-jump {
+        0%  {transform: scale(1, 1)}
+        50% {transform: scale(0.7, 0.7)}
+        100%  {transform: scale(1, 1)}
+      }
+
+      @keyframes leg-left-scratch {
+        0%  {transform-origin: 30% 62%; transform: rotateX(0deg);}
+        40% {transform-origin: 30% 62%; transform: rotate(-150deg) scaleY(0.7)}
+        60% {transform-origin: 30% 62%; transform: rotate(-150deg) scaleY(0.7)}
+        100%  {transform-origin: 30% 62%; transform: rotateX(0deg);}
+      }
+
+      @keyframes foot-left-scratch {
+        0%  {transform-origin: 30% 62%; transform: rotateX(0deg);}
+        40% {transform-origin: 30% 62%; transform: rotate(-150deg) scaleY(0.7)}
+        60% {transform-origin: 30% 62%; transform: rotate(-150deg) scaleY(0.7)}
+        100%  {transform-origin: 30% 62%; transform: rotateX(0deg);}
+      }
+
+      @keyframes leg-right-scratch {
+        0%  {transform-origin: 64% 62%; transform: rotateX(0deg);}
+        40% {transform-origin: 64% 62%; transform: rotate(150deg) scaleY(0.7)}
+        60% {transform-origin: 64% 62%; transform: rotate(150deg) scaleY(0.7)}
+        100%  {transform-origin: 64% 62%; transform: rotateX(0deg);}
+      }
+
+      @keyframes foot-right-scratch {
+        0%  {transform-origin: 64% 62%; transform: rotateX(0deg);}
+        40% {transform-origin: 64% 62%; transform: rotate(150deg) scaleY(0.7)}
+        60% {transform-origin: 64% 62%; transform: rotate(150deg) scaleY(0.7)}
+        100%  {transform-origin: 64% 62%; transform: rotateX(0deg);}
+      }
+
+      @keyframes mouth-scratch {
+        0%  {transform: translateY(0px);}
+        40% {transform: translateY(5px);}
+        50% {transform: translateY(0px);}
+        60% {transform: translateY(5px);}
+        100%  {transform: translateY(0px);}
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Cat">
+      <svg class="cat-svg" height="300" width="230">
+        <path class="tail" d="M 215 215 C 218 230 171 250 154 241 C 156 235 198 205 215 215"></path>
+        <path class="foot-left-back" d="M 43 267 C 43 254 87 251 90 268 C 92 280 44 284 43 267"></path>
+        <path class="foot-right-back" d="M 122 269 C 114 257 165 248 169 268 C 171 279 131 285 122 269"></path> 
+        <path class="ear-out-left" d="M 35 35 C 47 32 66 38 73 45 C 63 53 52 62 48 82 C 44 67 32 53 35 35"></path>
+        <path class="ear-out-right" d="M 170 34 C 172 55 165 64 159 76 C 152 62 147 49 130 44 C 140 38 153 33 170 34 "></path>
+        <path class="ear-in-left" d="M 41 41 C 54 38 66 43 70 45 C 63 49 52 61 48 74 C 44 63 40 55 41 41 "></path>
+        <path class="ear-in-right" d="M 164 40 C 165 53 162 64 158 70 C 153 58 145 50 138 44 C 146 40 153 40 164 40"></path>        
+        <path class="body" d="M 57 124 C -79 313 289 335 155 125 C 128 92 76 98 57 124"></path>
+        <path class="head" d="M 164 95 C 164 12 41 8 44 97 C 45 169 166 173 164 95 "></path>
+        <path class="pattern-left" d=" M 63 158 C 57 152 55 143 47 139 C 43 146 39 153 37 158 C 46 159 54 159 63 158 M 53 217 C 46 224 42 230 35 234 C 32 229 28 222 28 214 C 38 214 45 215 53 217 M 161 192 C 168 187 173 184 180 180 C 182 184 184 193 184 202 C 176 200 168 197 161 192"></path>
+        <path class="pattern-right" d="M 53 189 C 46 184 39 178 32 173 C 28 183 27 190 27 196 C 36 195 44 190 53 189 M 148 161 C 154 155 158 148 164 141 C 168 148 171 153 174 161 C 165 160 158 161 148 161 M 156 220 C 167 219 174 220 183 222 C 181 232 179 238 174 244 C 165 239 161 231 156 220"></path>
+        <path class="stomach" d="M 84 270 C 84 240 84 216 84 192 C 104 170 121 180 132 191 C 131.6667 214.6667 131.3333 238.3333 131 272 C 114 277 98 277 84 270 "></path>              
+        <path class="mustache" d="M 80 119 C 65 100 87 93 95 93 C 106 88 113 89 121 93 C 141 95 141 107 138 115 C 133 123 122 121 119 120 C 114 118 112 114 108 114 C 104 114 100 120 96 121 C 91 122 85 124 80 119"></path>
+        <path class="mouth" d="M 99 124 C 107 130 111 129 118 124 C 112 115 107 112 99 124"></path>
+        <path class="nose" d="M 97 93 C 103 85 115 86 119 93 C 114 97 111 101 108 101 C 105 101 101 96 97 93"></path>
+        <path class="eye-out-left" d="M 67 82 C 65 75 93 72 97 80 C 103 93 72 100 67 82"></path>
+        <path class="eye-in-left" d="M 82 77 C 71 79 73 92 83 92 C 93 90 92 77 82 77"></path>
+        <path class="eye-out-right" d="M 119 82 C 117 74 147 74 149 80 C 152 93 123 100 119 82"></path>
+        <path class="eye-in-right" d="M 134 77 C 144 76 144 92 135 92 C 124 92 124 78 134 77"></path>
+        <path class="leg-left" d="M 54 186 C 54 211.3333 54 236.6667 54 262 C 63.3333 262.6667 72.6667 263.3333 82 264 C 82 239 82 214 82 189 C 72.6667 188 63.3333 187 54 186 "></path>
+        <path class="leg-right" d="M 133 261 C 133 237 133 213 133 189 C 143 187.3333 153 185.6667 163 184 C 162.6667 209.6667 162.3333 235.3333 162 261 C 152.3333 261 142.6667 261 133 261"></path>
+        <path class="foot-left" d="M 43 267 C 43 254 87 251 90 268 C 92 280 44 284 43 267"></path>
+        <path class="foot-right" d="M 122 269 C 114 257 165 248 169 268 C 171 279 131 285 122 269"></path>  
+      </svg>
+      <svg  class="shadow" height="40" width="230">
+        <path d="M 30 20 C 30 4 171 4 171 21 C 171 39 30 39 30 20"></path>
+      </svg>
+    </div>
+    <script>
+      const eye1 = document.querySelector('.eye-in-left');
+      const eye2 = document.querySelector('.eye-in-right')
+      window.addEventListener('mousemove', function (evt) {
+          const x = -(window.innerWidth / 2 - evt.pageX) / 40;
+          const y = -(window.innerHeight / 2 - evt.pageY) / 60;
+          eye1.style.transform = `translateY(${y}px) translateX(${x}px)`;
+          eye2.style.transform = `translateY(${y}px) translateX(${x}px)`;
+      });  
+      var iter = true;
+      const tail = document.querySelector('.tail')
+      document.querySelector('.tail').addEventListener("click", function (evt) {
+          tail.style.animation = "tail-move 0.6s 1";
+          setTimeout(function(){
+              tail.style.animation = "";
+            }, 700);     
+      });
+      var three_click = 0;
+      const cat_svg = document.querySelector('.cat-svg')
+      const shadow = document.querySelector('.shadow')
+      document.querySelector('.Cat').addEventListener("click", function (evt) {
+          three_click ++;
+          if (three_click == 3) {
+              three_click = 0;
+              cat_svg.style.animation = "cat-jump 0.6s 1";
+              shadow.style.animation = "shadow-jump 0.6s 1"
+              setTimeout(function(){
+                  cat_svg.style.animation = "";
+                  shadow.style.animation = ""
+                }, 700);    
+          }
+          else {
+              setTimeout(function(){
+                  three_click = 0;
+                }, 600);
+          }   
+      });
+      const foot_left = document.querySelector('.foot-left')
+      const foot_right = document.querySelector('.foot-right')
+      const leg_left = document.querySelector('.leg-left')
+      const leg_right = document.querySelector('.leg-right')
+      const mouth = document.querySelector('.mouth')
+      document.querySelector('.foot-left').addEventListener("click", function (evt) {
+          leg_left.style.animation = "leg-left-scratch 2s 1";
+          foot_left.style.animation = "foot-left-scratch 2s 1";
+          mouth.style.animation = "mouth-scratch 2s 1";
+          setTimeout(function(){
+              leg_left.style.animation = "";
+              foot_left.style.animation = "";
+              mouth.style.animation = "";
+            }, 2100);     
+      });
+      document.querySelector('.foot-right').addEventListener("click", function (evt) {
+          leg_right.style.animation = "leg-right-scratch 2s 1";
+          foot_right.style.animation = "foot-right-scratch 2s 1";
+          mouth.style.animation = "mouth-scratch 2s 1";
+          setTimeout(function(){
+              leg_right.style.animation = "";
+              foot_right.style.animation = "";
+              mouth.style.animation = "";
+            }, 2100);        
+      });
+      let cat_div = document.getElementById('Cat');
+      const head = document.querySelector('.head');
+      const ear_out_left = document.querySelector('.ear-out-left');
+      const ear_in_left = document.querySelector('.ear-in-left');
+      const ear_out_right = document.querySelector('.ear-out-right');
+      const ear_in_right = document.querySelector('.ear-in-right');
+      const mustache = document.querySelector('.mustache');
+      const nose = document.querySelector('.nose');
+      const eye_out_left = document.querySelector('.eye-out-left');
+      const eye_out_right = document.querySelector('.eye-out-right');
+      window.addEventListener('mousemove', function (evt) {
+          const x = -(window.innerWidth / 2 - evt.pageX) / 100;
+          const y = -(window.innerHeight / 2 - evt.pageY) / 100;
+          head.style.transform = `translateY(${y}px) translateX(${x}px)`;
+          ear_out_left.style.transform = `translateY(${y}px) translateX(${x}px)`;
+          ear_in_left.style.transform = `translateY(${y}px) translateX(${x}px)`;
+          ear_out_right.style.transform = `translateY(${y}px) translateX(${x}px)`;
+          ear_in_right.style.transform = `translateY(${y}px) translateX(${x}px)`;
+          mustache.style.transform = `translateY(${y}px) translateX(${x}px)`;
+          mouth.style.transform = `translateY(${y}px) translateX(${x}px)`;
+          nose.style.transform = `translateY(${y}px) translateX(${x}px)`;
+          eye_out_left.style.transform = `translateY(${y}px) translateX(${x}px)`;
+          eye_out_right.style.transform = `translateY(${y}px) translateX(${x}px)`;
+      });  
+    </script>
+    </body>
+</html>
